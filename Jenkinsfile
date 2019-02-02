@@ -28,5 +28,27 @@ pipeline {
         }
       }
     }
+    stage('12') {
+      parallel {
+        stage('12') {
+          steps {
+            echo '12'
+            sleep 5
+          }
+        }
+        stage('21') {
+          steps {
+            echo '21'
+            sleep 3
+          }
+        }
+      }
+    }
+    stage('333') {
+      steps {
+        sh 'ls -l'
+        sleep 10
+      }
+    }
   }
 }
